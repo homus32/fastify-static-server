@@ -1,0 +1,31 @@
+//- @param {Array<{id: number, name: string, email: string}>} users
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    title Список пользователей
+    link(rel="stylesheet" href="/style.css")
+  body
+    h1 Список пользователей
+    a(href="/users/create") Создать пользователя
+    if users.length === 0
+      p Пользователей нет.
+    else
+      table
+        thead
+          tr
+            th ID
+            th Имя
+            th Email
+            th Действия
+        tbody
+          each user in users
+            tr
+              td= user.id
+              td= user.name
+              td= user.email
+              td
+                .actions
+                  a.btn-edit(href=`/users/${user.id}/edit`) Изменить
+                  form(action=`/users/${user.id}/delete` method="POST")
+                    button.btn-danger(type="submit") Удалить

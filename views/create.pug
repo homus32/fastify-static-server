@@ -1,0 +1,17 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    title Создать пользователя
+    link(rel="stylesheet" href="/style.css")
+  body
+    h1 Создать пользователя
+    a(href="/users") К списку пользователей
+    form(action="/users" method="POST")
+      div
+        label(for="name") Имя:
+        input#name(type="text" name="name" required)
+      div
+        label(for="email") Email:
+        input#email(type="email" name="email" required)
+      button(type="submit") Создать
